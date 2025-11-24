@@ -4,6 +4,8 @@ import VideoPromo from "@/components/VideoPromo";
 import ProblemsGrid from "@/components/ProblemsGrid";
 import ChooseRole from "@/components/ChooseRole";
 import Reveal from "@/components/animations/Reveal";
+import OwnerSection from "@/components/roles/OwnerSection";
+import StudentSection from "@/components/roles/StudentSection";
 
 export default function Home() {
 	return (
@@ -22,12 +24,10 @@ export default function Home() {
 					<VideoPromo />
 				</Reveal>
 			</div>
-			<Reveal>
-				<ProblemsGrid />
-			</Reveal>
-			<Reveal>
-				<ChooseRole />
-			</Reveal>
+			<ProblemsGrid />
+			<ChooseRole />
+			<StudentSection />
+			<OwnerSection />
 		</main>
 	);
 }
