@@ -2,6 +2,7 @@ import Navbar from "@/components/Navbar";
 import HeroSection from "@/components/HeroSection";
 import VideoPromo from "@/components/VideoPromo";
 import ProblemsGrid from "@/components/ProblemsGrid";
+import ChooseRole from "@/components/ChooseRole";
 
 export default function Home() {
   return (
@@ -16,6 +17,7 @@ export default function Home() {
         <VideoPromo />
       </div>
       <ProblemsGrid />
+      <ChooseRole />
     </main>
   );
 }
