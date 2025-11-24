@@ -10,9 +10,33 @@ export default function Navbar() {
       </div>
 
       {/* Ссылки */}
-      <div className="flex items-center gap-8 text-gray-700">
-        <a href="/" className="hover:text-black transition">Home</a>
-        <a href="/submit" className="hover:text-black transition">Submit Project</a>
+      <div className="flex items-center gap-8 text-gray-300 group">
+        <a
+          href="/"
+          className="
+            relative px-2 py-1
+            text-gray-300
+            hover:text-white
+            transition
+          "
+        >
+          Home
+          <span className="pointer-events-none absolute left-0 top-0 w-[10px] h-[10px] bg-black scale-0 origin-top-left transition-transform duration-200 group-hover:scale-100"></span>
+          <span className="pointer-events-none absolute right-0 bottom-0 w-[10px] h-[10px] bg-black scale-0 origin-bottom-right transition-transform duration-200 group-hover:scale-100"></span>
+        </a>
+        <a
+          href="/submit"
+          className="
+            relative px-2 py-1
+            text-gray-300
+            hover:text-white
+            transition
+          "
+        >
+          Submit Project
+          <span className="pointer-events-none absolute left-0 top-0 w-[10px] h-[10px] bg-black scale-0 origin-top-left transition-transform duration-200 group-hover:scale-100"></span>
+          <span className="pointer-events-none absolute right-0 bottom-0 w-[10px] h-[10px] bg-black scale-0 origin-bottom-right transition-transform duration-200 group-hover:scale-100"></span>
+        </a>
       </div>
 
       {/* Кнопка регистрации */}

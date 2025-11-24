@@ -7,7 +7,10 @@ export default function Home() {
     <main>
       <Navbar />
 
-      <div className="flex justify-between">
+      <div className="
+        flex flex-col md:flex-row
+        justify-between items-center
+      ">
         <HeroSection />
         <VideoPromo />
       </div>

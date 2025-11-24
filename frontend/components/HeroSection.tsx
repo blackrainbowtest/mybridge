@@ -1,7 +1,7 @@
 export default function HeroSection() {
   return (
     <section className="flex flex-col justify-center px-10 py-20 max-w-xl">
-      <h1 className="text-5xl font-bold leading-tight text-gray-900">
+      <h1 className="text-5xl font-extrabold leading-tight text-gray-900">
         Bridging the gaps<br />
         between education<br />
         and economy

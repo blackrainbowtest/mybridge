@@ -7,7 +7,8 @@ export default function VideoPromo() {
         muted
         loop
         playsInline
-        className="rounded-xl shadow-lg w-[500px] h-auto"
+        controls
+        className="rounded-xl shadow-lg w-[350px] h-[500px] object-cover"
       />
     </div>
   );
