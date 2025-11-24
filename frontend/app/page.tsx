@@ -6,6 +6,7 @@ import ChooseRole from "@/components/ChooseRole";
 import Reveal from "@/components/animations/Reveal";
 import OwnerSection from "@/components/roles/OwnerSection";
 import StudentSection from "@/components/roles/StudentSection";
+import StatsSection from "@/components/StatsSection";
 
 export default function Home() {
 	return (
@@ -28,6 +29,7 @@ export default function Home() {
 			<ChooseRole />
 			<StudentSection />
 			<OwnerSection />
+			<StatsSection />
 		</main>
 	);
 }
