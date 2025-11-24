@@ -3,21 +3,31 @@ import HeroSection from "@/components/HeroSection";
 import VideoPromo from "@/components/VideoPromo";
 import ProblemsGrid from "@/components/ProblemsGrid";
 import ChooseRole from "@/components/ChooseRole";
+import Reveal from "@/components/animations/Reveal";
 
 export default function Home() {
-  return (
-    <main>
-      <Navbar />
+	return (
+		<main className="bg-gray-100 min-h-screen">
+			<Navbar />
 
-      <div className="
-        flex flex-col md:flex-row
-        justify-between items-center
-      ">
-        <HeroSection />
-        <VideoPromo />
-      </div>
-      <ProblemsGrid />
-      <ChooseRole />
-    </main>
-  );
+			<div className="
+				flex flex-col md:flex-row
+				justify-between items-center
+				container mx-auto px-4
+			">
+				<Reveal>
+					<HeroSection />
+				</Reveal>
+				<Reveal>
+					<VideoPromo />
+				</Reveal>
+			</div>
+			<Reveal>
+				<ProblemsGrid />
+			</Reveal>
+			<Reveal>
+				<ChooseRole />
+			</Reveal>
+		</main>
+	);
 }
