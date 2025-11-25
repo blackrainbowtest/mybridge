@@ -6,7 +6,7 @@ import ContactForm from "./ContactForm";
 export default function ContactSection() {
 
 	return (
-		<section className="w-full py-20 px-6 text-[#11253B] bg-[#FCD34D]">
+		<section className="w-full py-15 px-6 text-[#11253B] bg-[#FCD34D]">
 			<div className="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-14 items-center">
 
 				{/* LEFT IMAGE */}
