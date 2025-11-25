@@ -60,8 +60,8 @@ export default function MobileMenu() {
 					{navItem("/submit", "Submit Project")}
 
 					{/* Mobile version of Join Now */}
-					<Link
-						href="/register"
+					<a
+						href="#choose-role"
 						onClick={() => setOpen(false)}
 						className="
 				block py-3 px-4 text-lg cursor-pointer
@@ -71,7 +71,7 @@ export default function MobileMenu() {
 			"
 					>
 						Join Now
-					</Link>
+					</a>
 				</div>
 			)}
 		</>

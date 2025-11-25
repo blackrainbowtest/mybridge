@@ -3,11 +3,11 @@ import Reveal from "@/components/animations/Reveal";
 
 export default function ChooseRole() {
   return (
-    <section className="w-full py-32 px-5 bg-white text-[#11253B]">
+    <section id="choose-role" className="w-full py-12 px-5 bg-white text-[#11253B]">
 
       {/* Заголовок */}
       <Reveal>
-        <h2 className="text-center text-4xl md:text-5xl font-semibold mb-20 leading-tight">
+        <h2 className="text-center text-4xl md:text-5xl font-semibold mb-10 leading-tight">
           Choose your role & start solving them!
         </h2>
       </Reveal>

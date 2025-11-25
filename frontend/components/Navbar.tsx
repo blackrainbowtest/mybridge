@@ -23,7 +23,7 @@ export default function Navbar() {
         {/* Desktop Join Button */}
         <div className="hidden md:block">
           <a
-            href="/register"
+            href="#choose-role"
             className="
               px-6 py-3 
               text-white font-semibold 
