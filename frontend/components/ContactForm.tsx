@@ -28,44 +28,74 @@ export default function ContactForm() {
 
 	return (
 		<>
-			<form onSubmit={handleSubmit} className="space-y-6">
+			<form onSubmit={handleSubmit} className="space-y-2">
 				<div className="grid grid-cols-2 gap-5">
+					<div>
+						<label htmlFor="firstName" className="block mb-2 font-medium">
+							First Name
+						</label>
+						<input
+							id="firstName"
+							name="firstName"
+							placeholder="First Name"
+							required
+							className="border p-3 rounded-lg w-full bg-white"
+						/>
+					</div>
+					<div>
+						<label htmlFor="lastName" className="block mb-2 font-medium">
+							Last Name
+						</label>
+						<input
+							id="lastName"
+							name="lastName"
+							placeholder="Last Name"
+							required
+							className="border p-3 rounded-lg w-full bg-white"
+						/>
+					</div>
+				</div>
+
+				<div>
+					<label htmlFor="email" className="block mb-2 font-medium">
+						Email Address
+					</label>
 					<input
-						name="firstName"
-						placeholder="First Name"
+						id="email"
+						type="email"
+						name="email"
+						placeholder="Email Address"
 						required
-						className="border p-3 rounded-lg w-full"
-					/>
-					<input
-						name="lastName"
-						placeholder="Last Name"
-						required
-						className="border p-3 rounded-lg w-full"
+						className="border p-3 rounded-lg w-full bg-white"
 					/>
 				</div>
 
-				<input
-					type="email"
-					name="email"
-					placeholder="Email Address"
-					required
-					className="border p-3 rounded-lg w-full"
-				/>
+				<div>
+					<label htmlFor="subject" className="block mb-2 font-medium">
+						Subject
+					</label>
+					<input
+						id="subject"
+						name="subject"
+						placeholder="Subject"
+						required
+						className="border p-3 rounded-lg w-full bg-white"
+					/>
+				</div>
 
-				<input
-					name="subject"
-					placeholder="Subject"
-					required
-					className="border p-3 rounded-lg w-full"
-				/>
-
-				<textarea
-					name="message"
-					placeholder="Message..."
-					rows={6}
-					required
-					className="border p-3 rounded-lg w-full"
-				/>
+				<div>
+					<label htmlFor="message" className="block mb-2 font-medium">
+						Message
+					</label>
+					<textarea
+						id="message"
+						name="message"
+						placeholder="Message..."
+						rows={6}
+						required
+						className="border p-3 rounded-lg w-full bg-white"
+					/>
+				</div>
 
 				{/* BUTTON */}
 				<button
