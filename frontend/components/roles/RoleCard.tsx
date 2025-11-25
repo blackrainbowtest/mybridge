@@ -17,8 +17,8 @@ export default function RoleCard({
 	return (
 		<div
 			className="
-			bg-[#3FA8A4] 
-			border-t-4 border-[#FCD34D]
+			bg-secondary 
+			border-t-4 border-accent
 			rounded-xl overflow-hidden
 			shadow-lg 
 			transition-all duration-300
@@ -60,12 +60,12 @@ export default function RoleCard({
 					className="
 				inline-block
 				px-6 py-3
-				bg-white text-[#11253B]
+				bg-white text-primary
 				font-semibold
 				rounded-full
 				shadow
-				hover:bg-[#FCD34D]
-				hover:text-[#11253B]
+				hover:bg-accent
+				hover:text-primary
 				transition-all
 			"
 				>

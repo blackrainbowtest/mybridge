@@ -6,7 +6,7 @@ import ContactForm from "./ContactForm";
 export default function ContactSection() {
 
 	return (
-		<section className="w-full py-15 px-6 text-[#11253B] bg-[#FCD34D]">
+		<section className="w-full py-15 px-6 text-primary bg-accent">
 			<div className="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-14 items-center">
 
 				{/* LEFT IMAGE */}
@@ -26,7 +26,7 @@ export default function ContactSection() {
 					<h2 className="text-4xl font-semibold  mb-2">
 						GET IN TOUCH
 					</h2>
-					<h3 className="text-3xl font-bold mb-10 text-[#3FA8A4]">
+					<h3 className="text-3xl font-bold mb-10 text-secondary">
 						Send us a Message
 					</h3>
 				</div>

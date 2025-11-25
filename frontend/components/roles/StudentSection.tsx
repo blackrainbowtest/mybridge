@@ -6,7 +6,7 @@ export default function StudentSection() {
 		<section className="w-full py-20 bg-white">
 
 			{/* Заголовок */}
-			<h2 className="text-center text-3xl md:text-4xl font-bold mb-16 text-[#3FA8A4]">
+			<h2 className="text-center text-3xl md:text-4xl font-bold mb-16 text-secondary">
 				If you are a Student
 			</h2>
 
@@ -36,13 +36,13 @@ export default function StudentSection() {
 							href="/register?role=student"
 							className="
 								px-6 py-3 
-								bg-[#11253B] 
+								bg-primary 
 								text-white 
 								rounded-full 
 								shadow 
 								transition-all duration-300
-								hover:bg-[#3FA8A4]
-								hover:text-[#FCD34D]
+								hover:bg-secondary
+								hover:text-accent
 								hover:-translate-y-1
 								hover:shadow-lg
 							"

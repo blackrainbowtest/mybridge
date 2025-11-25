@@ -3,7 +3,7 @@ import Reveal from "@/components/animations/Reveal";
 
 export default function ChooseRole() {
   return (
-    <section id="choose-role" className="w-full py-12 px-5 bg-white text-[#11253B]">
+    <section id="choose-role" className="w-full py-12 px-5 bg-white text-primary">
 
       {/* Заголовок */}
       <Reveal>

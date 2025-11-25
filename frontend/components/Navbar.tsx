@@ -29,9 +29,9 @@ export default function Navbar() {
               text-white font-semibold 
               rounded-full 
               transition-all
-              bg-[#11253B]
-              hover:bg-[#FCD34D] 
-              hover:text-[#11253B]
+              bg-primary
+              hover:bg-accent 
+              hover:text-primary
             "
           >
             Join Now

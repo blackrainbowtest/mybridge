@@ -3,6 +3,15 @@
 :root {
   --background: #ffffff;
   --foreground: #171717;
+  
+  /* Brand Colors */
+  --color-primary: #11253B;
+  --color-secondary: #3FA8A4;
+  --color-accent: #FCD34D;
+  
+  /* Secondary shades */
+  --color-secondary-dark: #2b8683;
+  --color-secondary-darker: #2b7c7a;
 }
 
 @theme inline {
@@ -10,6 +19,13 @@
   --color-foreground: var(--foreground);
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
+  
+  /* Custom colors for Tailwind */
+  --color-primary: var(--color-primary);
+  --color-secondary: var(--color-secondary);
+  --color-accent: var(--color-accent);
+  --color-secondary-dark: var(--color-secondary-dark);
+  --color-secondary-darker: var(--color-secondary-darker);
 }
 
 @media (prefers-color-scheme: dark) {

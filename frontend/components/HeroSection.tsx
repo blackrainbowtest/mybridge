@@ -7,7 +7,7 @@ export default function HeroSection() {
           text-[70px]
           font-bold
           leading-tight
-          text-[#3FA8A4]
+          text-secondary
           mt-2
           mb-4
         "
@@ -20,7 +20,7 @@ export default function HeroSection() {
           mt-0
           mb-[0.9rem]
           text-[22px]
-          text-[#11253B]
+          text-primary
         "
       >
         Bridge is here to close the distance between what people learn and how they use it.
@@ -31,7 +31,7 @@ export default function HeroSection() {
           mt-0
           mb-[0.9rem]
           text-[22px]
-          text-[#11253B]
+          text-primary
         "
       >
         We connect education, problems, and the economy into one collaborative space.

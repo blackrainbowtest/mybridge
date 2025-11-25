@@ -18,7 +18,7 @@ export default function MobileMenu() {
 				className={`
 			block py-3 px-4 text-lg cursor-pointer transition-all
 			${active ? "font-bold text-gray-900" : "text-gray-700"}
-			hover:bg-[#FCD34D] hover:text-[#11253B]
+			hover:bg-accent hover:text-primary
 		`}
 			>
 				{label}
@@ -35,7 +35,7 @@ export default function MobileMenu() {
 	cursor-pointer transition-all
 
 	${open
-						? "bg-[#FCD34D] text-[#11253B]"        // меню открыто → жёлтый
+						? "bg-accent text-primary"        // меню открыто → жёлтый
 						: "bg-transparent text-gray-800"}       // меню закрыто → прозрачный
 
 	${open
@@ -65,8 +65,8 @@ export default function MobileMenu() {
 						onClick={() => setOpen(false)}
 						className="
 				block py-3 px-4 text-lg cursor-pointer
-				bg-[#11253B] text-white
-				hover:bg-[#FCD34D] hover:text-[#11253B]
+				bg-primary text-white
+				hover:bg-accent hover:text-primary
 				transition-all font-semibold
 			"
 					>

@@ -13,7 +13,7 @@ export default function IconFeature({ image, title }: {
 				height={190}
 				className="w-28 h-28 sm:w-32 sm:h-32 md:w-40 md:h-40 object-cover rounded-full shadow"
 			/>
-			<h3 className="mt-4 text-xl font-semibold leading-snug !text-[#3fa8a4]">
+			<h3 className="mt-4 text-xl font-semibold leading-snug !text-secondary">
 				{title}
 			</h3>
 		</div>

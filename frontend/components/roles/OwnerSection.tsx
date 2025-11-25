@@ -5,7 +5,7 @@ export default function OwnerSection() {
 	return (
 		<section className="w-full py-20 bg-white">
 
-			<h2 className="text-center text-3xl md:text-4xl font-bold mb-16 text-[#3FA8A4]">
+			<h2 className="text-center text-3xl md:text-4xl font-bold mb-16 text-secondary">
 				If you are a Problem Owner
 			</h2>
 
@@ -24,13 +24,13 @@ export default function OwnerSection() {
 							href="/register?role=owner"
 							className="
 								px-6 py-3 
-								bg-[#11253B] 
+								bg-primary 
 								text-white 
 								rounded-full 
 								shadow 
 								transition-all duration-300
-								hover:bg-[#3FA8A4]
-								hover:text-[#FCD34D]
+								hover:bg-secondary
+								hover:text-accent
 								hover:-translate-y-1
 								hover:shadow-lg
 							"

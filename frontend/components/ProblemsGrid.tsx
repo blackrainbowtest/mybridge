@@ -2,7 +2,7 @@ import Reveal from "./animations/Reveal";
 
 export default function ProblemsGrid() {
   return (
-    <section className="w-full py-32 px-5 bg-white text-[#11253B]">
+    <section className="w-full py-32 px-5 bg-white text-primary">
 
       {/* Заголовок */}
       <Reveal>
@@ -18,34 +18,34 @@ export default function ProblemsGrid() {
         {/* Колонка 1 */}
         <Reveal>
           <div className="space-y-6 text-[20px] leading-snug">
-            <p className="hover:text-[#3FA8A4] transition">Lack of experience</p>
-            <p className="hover:text-[#3FA8A4] transition">Expensive workforce</p>
-            <p className="hover:text-[#3FA8A4] transition">No try-fail space</p>
+            <p className="hover:text-secondary transition">Lack of experience</p>
+            <p className="hover:text-secondary transition">Expensive workforce</p>
+            <p className="hover:text-secondary transition">No try-fail space</p>
           </div>
         </Reveal>
 
         {/* Колонка 2 */}
         <Reveal>
           <div className="space-y-6 text-[20px] leading-snug">
-            <p className="hover:text-[#3FA8A4] transition">High solution costs</p>
-            <p className="hover:text-[#3FA8A4] transition">Inefficient education</p>
+            <p className="hover:text-secondary transition">High solution costs</p>
+            <p className="hover:text-secondary transition">Inefficient education</p>
           </div>
         </Reveal>
 
         {/* Колонка 3 */}
         <Reveal>
           <div className="space-y-6 text-[20px] leading-snug">
-            <p className="hover:text-[#3FA8A4] transition">Lack of resources</p>
-            <p className="hover:text-[#3FA8A4] transition">Hidden talent</p>
+            <p className="hover:text-secondary transition">Lack of resources</p>
+            <p className="hover:text-secondary transition">Hidden talent</p>
           </div>
         </Reveal>
 
         {/* Колонка 4 */}
         <Reveal>
           <div className="space-y-6 text-[20px] leading-snug">
-            <p className="hover:text-[#3FA8A4] transition">Hands-on skill shortages</p>
-            <p className="hover:text-[#3FA8A4] transition">Unclear career path</p>
-            <p className="hover:text-[#3FA8A4] transition">Onboarding challenges</p>
+            <p className="hover:text-secondary transition">Hands-on skill shortages</p>
+            <p className="hover:text-secondary transition">Unclear career path</p>
+            <p className="hover:text-secondary transition">Onboarding challenges</p>
           </div>
         </Reveal>
 
