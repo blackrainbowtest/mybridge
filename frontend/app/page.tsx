@@ -7,6 +7,7 @@ import Reveal from "@/components/animations/Reveal";
 import OwnerSection from "@/components/roles/OwnerSection";
 import StudentSection from "@/components/roles/StudentSection";
 import StatsSection from "@/components/StatsSection";
+import ContactSection from "@/components/ContactSection";
 
 export default function Home() {
 	return (
@@ -30,6 +31,7 @@ export default function Home() {
 			<StudentSection />
 			<OwnerSection />
 			<StatsSection />
+			<ContactSection />
 		</main>
 	);
 }
