@@ -8,6 +8,7 @@ import authRoutes from "./routes/auth.routes.js";
 import uploadRoutes from "./routes/upload.routes.js";
 import profileRoutes from "./routes/profile.routes.js";
 import projectRoutes from "./routes/project.routes.js";
+import applicationRoutes from "./routes/application.routes.js";
 
 dotenv.config();
 
@@ -31,6 +32,9 @@ app.use("/profile", profileRoutes);
 
 // Projects
 app.use("/projects", projectRoutes);
+
+// Applications
+app.use("/applications", applicationRoutes);
 
 app.get("/", (req, res) => {
   res.json({ message: "API is working" });
