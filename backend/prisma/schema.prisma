@@ -1,0 +1,98 @@
+datasource db {
+  provider = "sqlite"
+  url      = env("DATABASE_URL")
+}
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+model User {
+  id            String   @id @default(uuid())
+  email         String   @unique
+  passwordHash  String
+  role          Role
+  createdAt     DateTime @default(now())
+  updatedAt     DateTime @updatedAt
+
+  studentProfile StudentProfile?
+  ownerProfile   OwnerProfile?
+
+  projects      Project[]        @relation("OwnerProjects")
+  applications  Application[]
+}
+
+model StudentProfile {
+  id        String @id @default(uuid())
+  user      User   @relation(fields: [userId], references: [id])
+  userId    String @unique
+
+  fullName   String?
+  age        Int?
+  bio        String?
+  skills     String?
+  portfolio  String?
+  resumeUrl  String?
+  education  String?
+  experience String?
+}
+
+model OwnerProfile {
+  id        String @id @default(uuid())
+  user      User   @relation(fields: [userId], references: [id])
+  userId    String @unique
+
+  companyName   String?
+  description   String?
+  website       String?
+  contactName   String?
+  contactPhone  String?
+  address       String?
+}
+
+model Project {
+  id            String    @id @default(uuid())
+  owner         User      @relation("OwnerProjects", fields: [ownerId], references: [id])
+  ownerId       String
+
+  title         String
+  description   String
+  requiredSkills String?
+  difficulty    Difficulty
+  category      String?
+
+  createdAt     DateTime @default(now())
+  updatedAt     DateTime @updatedAt
+  isOpen        Boolean  @default(true)
+
+  applications  Application[]
+}
+
+model Application {
+  id         String   @id @default(uuid())
+  project    Project  @relation(fields: [projectId], references: [id])
+  projectId  String
+  student    User     @relation(fields: [studentId], references: [id])
+  studentId  String
+
+  coverLetter String?
+  status      ApplicationStatus @default(PENDING)
+  createdAt   DateTime @default(now())
+}
+
+enum Role {
+  STUDENT
+  OWNER
+}
+
+enum Difficulty {
+  EASY
+  MEDIUM
+  HARD
+}
+
+enum ApplicationStatus {
+  PENDING
+  ACCEPTED
+  REJECTED
+}
