@@ -10,6 +10,7 @@ import profileRoutes from "./routes/profile.routes.js";
 import projectRoutes from "./routes/project.routes.js";
 import applicationRoutes from "./routes/application.routes.js";
 import chatRoutes from "./routes/chat.routes.js";
+import notificationRoutes from "./routes/notification.routes.js";
 
 dotenv.config();
 
@@ -39,6 +40,9 @@ app.use("/applications", applicationRoutes);
 
 // Chats
 app.use("/chat", chatRoutes);
+
+// Notifications
+app.use("/notifications", notificationRoutes);
 
 app.get("/", (req, res) => {
   res.json({ message: "API is working" });
