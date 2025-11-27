@@ -1,4 +1,5 @@
 import prisma from "../utils/prisma.js";
+import { getPaginationParams, buildPaginationObject } from "../utils/pagination.js";
 
 // ------------------------------
 // CREATE ROOM
@@ -91,6 +92,7 @@ export async function getRoomMessages(req, res) {
   try {
     const user = req.user;
     const { roomId } = req.params;
+    const { page, limit, skip } = getPaginationParams(req);
 
     const member = await prisma.chatMember.findFirst({
       where: { roomId, userId: user.userId }
@@ -100,20 +102,26 @@ export async function getRoomMessages(req, res) {
       return res.status(403).json({ error: "You are not in this room" });
     }
 
+    const total = await prisma.message.count({ where: { roomId } });
+
     const messages = await prisma.message.findMany({
       where: { roomId },
-      orderBy: { createdAt: "asc" },
       include: {
         sender: true,
         reactions: {
-          include: {
-            user: true
-          }
+          include: { user: true }
         }
-      }
+      },
+      orderBy: { createdAt: "desc" },  // newest first
+      skip,
+      take: limit
     });
 
-    return res.json(messages);
+    return res.json({
+      data: messages,
+      pagination: buildPaginationObject(page, limit, total)
+    });
+
   } catch (e) {
     console.error("GET MESSAGES ERROR:", e);
     return res.status(500).json({ error: "Server error" });

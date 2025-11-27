@@ -1,4 +1,5 @@
 import prisma from "../utils/prisma.js";
+import { getPaginationParams, buildPaginationObject } from "../utils/pagination.js";
 
 // ------------------------------
 // STUDENT: APPLY
@@ -60,34 +61,38 @@ export async function applyToProject(req, res) {
 export async function listProjectApplications(req, res) {
   try {
     const user = req.user;
+    const { projectId } = req.params;
+    const { page, limit, skip } = getPaginationParams(req);
 
     if (user.role !== "OWNER") {
       return res.status(403).json({ error: "Only owners can view applications" });
     }
 
-    const { projectId } = req.params;
-
     const project = await prisma.project.findUnique({ where: { id: projectId } });
-
     if (!project) return res.status(404).json({ error: "Project not found" });
 
     if (project.ownerId !== user.userId) {
       return res.status(403).json({ error: "This project is not yours" });
     }
 
+    const total = await prisma.application.count({ where: { projectId } });
+
     const applications = await prisma.application.findMany({
       where: { projectId },
       include: {
         student: {
-          include: {
-            studentProfile: true
-          }
+          include: { studentProfile: true }
         }
       },
-      orderBy: { createdAt: "desc" }
+      orderBy: { createdAt: "desc" },
+      skip,
+      take: limit
     });
 
-    return res.json(applications);
+    return res.json({
+      data: applications,
+      pagination: buildPaginationObject(page, limit, total)
+    });
 
   } catch (e) {
     console.error("LIST APPLICATIONS ERROR:", e);

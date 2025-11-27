@@ -1,4 +1,5 @@
 import prisma from "../utils/prisma.js";
+import { getPaginationParams, buildPaginationObject } from "../utils/pagination.js";
 
 // ------------------------------
 // CREATE PROJECT
@@ -41,34 +42,35 @@ export async function createProject(req, res) {
 // ------------------------------
 export async function listProjects(req, res) {
   try {
+    const { page, limit, skip } = getPaginationParams(req);
     const { category, difficulty, skills, openOnly } = req.query;
 
     const filters = {};
-
     if (category) filters.category = category;
     if (difficulty) filters.difficulty = difficulty;
     if (openOnly) filters.isOpen = true;
-
-    // skills — its text JSON
     if (skills) {
-      filters.requiredSkills = {
-        contains: skills
-      };
+      filters.requiredSkills = { contains: skills };
     }
+
+    const total = await prisma.project.count({ where: filters });
 
     const projects = await prisma.project.findMany({
       where: filters,
       include: {
         owner: {
-          include: {
-            ownerProfile: true
-          }
+          include: { ownerProfile: true }
         }
       },
-      orderBy: { createdAt: "desc" }
+      orderBy: { createdAt: "desc" },
+      skip,
+      take: limit
     });
 
-    return res.json(projects);
+    return res.json({
+      data: projects,
+      pagination: buildPaginationObject(page, limit, total)
+    });
 
   } catch (e) {
     console.error("LIST PROJECTS ERROR:", e);
