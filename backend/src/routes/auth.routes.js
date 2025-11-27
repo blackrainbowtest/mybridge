@@ -1,10 +1,10 @@
 import { Router } from "express";
+import { register, login, refreshToken } from "../controllers/auth.controller.js";
 
 const router = Router();
 
-// TODO: register / login / refresh
-router.get("/test", (req, res) => {
-  res.json({ ok: true });
-});
+router.post("/register", register);
+router.post("/login", login);
+router.post("/refresh", refreshToken);
 
 export default router;

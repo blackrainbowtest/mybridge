@@ -6,6 +6,7 @@ import { fileURLToPath } from "url";
 
 import authRoutes from "./routes/auth.routes.js";
 import uploadRoutes from "./routes/upload.routes.js";
+import profileRoutes from "./routes/profile.routes.js";
 
 dotenv.config();
 
@@ -23,6 +24,9 @@ app.use("/uploads", express.static(path.join(__dirname, "uploads")));
 // Routes
 app.use("/auth", authRoutes);
 app.use("/upload", uploadRoutes);
+
+// Profile
+app.use("/profile", profileRoutes);
 
 app.get("/", (req, res) => {
   res.json({ message: "API is working" });
