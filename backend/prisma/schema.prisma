@@ -105,3 +105,40 @@ model RefreshToken {
   expiresAt DateTime
   createdAt DateTime @default(now())
 }
+
+model ChatRoom {
+  id         String      @id @default(uuid())
+  type       ChatType
+  projectId  String?     // для PROJECT_CHAT
+  applicationId String?  // для APPLICATION_CHAT
+  createdAt  DateTime    @default(now())
+
+  members    ChatMember[]
+  messages   Message[]
+}
+
+model ChatMember {
+  id        String   @id @default(uuid())
+  room      ChatRoom @relation(fields: [roomId], references: [id])
+  roomId    String
+  user      User     @relation(fields: [userId], references: [id])
+  userId    String
+  joinedAt  DateTime @default(now())
+}
+
+model Message {
+  id        String   @id @default(uuid())
+  room      ChatRoom @relation(fields: [roomId], references: [id])
+  roomId    String
+  sender    User     @relation(fields: [senderId], references: [id])
+  senderId  String
+  content   String?
+  attachmentUrl String?
+  createdAt DateTime @default(now())
+}
+
+enum ChatType {
+  APPLICATION_CHAT
+  PROJECT_CHAT
+  DIRECT_CHAT
+}
