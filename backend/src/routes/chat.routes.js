@@ -4,21 +4,41 @@ import {
   createChatRoom,
   sendMessage,
   getUserRooms,
-  getRoomMessages
+  getRoomMessages,
+  editMessage,
+  deleteMessage,
+  pinMessage,
+  unpinMessage,
+  addReaction,
+  removeReaction
 } from "../controllers/chat.controller.js";
 
 const router = Router();
 
-// create a room (any type)
+// create a room
 router.post("/create", authRequired, createChatRoom);
 
 // send a message
 router.post("/send", authRequired, sendMessage);
 
-// get a list of user rooms
+// list of user rooms
 router.get("/rooms", authRequired, getUserRooms);
 
-// receive room messages
+// room messages
 router.get("/room/:roomId/messages", authRequired, getRoomMessages);
+
+// edit message
+router.patch("/message/:messageId", authRequired, editMessage);
+
+// delete message
+router.delete("/message/:messageId", authRequired, deleteMessage);
+
+// pin / unpin
+router.post("/message/:messageId/pin", authRequired, pinMessage);
+router.post("/message/:messageId/unpin", authRequired, unpinMessage);
+
+// reactions
+router.post("/message/:messageId/reaction", authRequired, addReaction);
+router.delete("/message/:messageId/reaction", authRequired, removeReaction);
 
 export default router;

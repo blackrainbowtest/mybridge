@@ -127,14 +127,31 @@ model ChatMember {
 }
 
 model Message {
-  id        String   @id @default(uuid())
-  room      ChatRoom @relation(fields: [roomId], references: [id])
-  roomId    String
-  sender    User     @relation(fields: [senderId], references: [id])
-  senderId  String
-  content   String?
+  id           String      @id @default(uuid())
+  room         ChatRoom    @relation(fields: [roomId], references: [id])
+  roomId       String
+  sender       User        @relation(fields: [senderId], references: [id])
+  senderId     String
+  content      String?
   attachmentUrl String?
+  createdAt    DateTime    @default(now())
+  updatedAt    DateTime    @updatedAt
+  isDeleted    Boolean     @default(false)
+  isPinned     Boolean     @default(false)
+
+  reactions    Reaction[]
+}
+
+model Reaction {
+  id        String   @id @default(uuid())
+  message   Message  @relation(fields: [messageId], references: [id])
+  messageId String
+  user      User     @relation(fields: [userId], references: [id])
+  userId    String
+  emoji     String
   createdAt DateTime @default(now())
+
+  @@unique([messageId, userId, emoji])
 }
 
 enum ChatType {
