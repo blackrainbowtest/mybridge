@@ -1,32 +1,62 @@
 import { Router } from "express";
-import upload from "../middleware/upload.js";
+import { uploader } from "../middleware/upload.js";
+import { authRequired } from "../middleware/auth.js";
 
 const router = Router();
 
-router.post("/avatar", upload.single("avatar"), (req, res) => {
-  if (!req.file) {
-    return res.status(400).json({ error: "File not found" });
+// Upload avatar
+router.post(
+  "/avatar",
+  authRequired,
+  uploader("avatar").single("avatar"),
+  (req, res) => {
+    const fileUrl = req.file.path.replace(/.*uploads/, "/uploads");
+    res.json({ url: fileUrl });
   }
+);
 
-  const fileUrl = "/uploads/" + req.file.filename;
-
-  res.json({
-    message: "Avatar uploaded",
-    url: fileUrl
-  });
-});
-
-router.post("/logo", upload.single("logo"), (req, res) => {
-  if (!req.file) {
-    return res.status(400).json({ error: "File not found" });
+// Upload logo
+router.post(
+  "/logo",
+  authRequired,
+  uploader("logo").single("logo"),
+  (req, res) => {
+    const fileUrl = req.file.path.replace(/.*uploads/, "/uploads");
+    res.json({ url: fileUrl });
   }
+);
 
-  const fileUrl = "/uploads/" + req.file.filename;
+// Chat attachments
+router.post(
+  "/chat",
+  authRequired,
+  uploader("chat").single("file"),
+  (req, res) => {
+    const fileUrl = req.file.path.replace(/.*uploads/, "/uploads");
+    res.json({ url: fileUrl });
+  }
+);
 
-  res.json({
-    message: "Company logo uploaded",
-    url: fileUrl
-  });
-});
+// Project images
+router.post(
+  "/project",
+  authRequired,
+  uploader("project").single("image"),
+  (req, res) => {
+    const fileUrl = req.file.path.replace(/.*uploads/, "/uploads");
+    res.json({ url: fileUrl });
+  }
+);
+
+// Resume upload
+router.post(
+  "/resume",
+  authRequired,
+  uploader("resume").single("file"),
+  (req, res) => {
+    const fileUrl = req.file.path.replace(/.*uploads/, "/uploads");
+    res.json({ url: fileUrl });
+  }
+);
 
 export default router;

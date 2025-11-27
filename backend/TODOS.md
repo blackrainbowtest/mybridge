@@ -138,7 +138,7 @@ Applications
 
 Chat messages
 
-Completion: 0%
+Completion: 100%
 
 ## 11. Improve the Upload system
 
